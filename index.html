@@ -226,24 +226,19 @@
   </div>
   <script>
     (function () {
-      // App Store Connect → App 信息 → Apple ID（数字）。上架后填这里可直达下载页。
-      var APP_STORE_ID = "6758230986";
+      var STORE_URLS = {
+        zh: "https://apps.apple.com/cn/app/id6758230986",
+        en: "https://apps.apple.com/us/app/id6758230986",
+        ja: "https://apps.apple.com/jp/app/id6758230986"
+      };
+      var STORE_URL_DEFAULT = "https://apps.apple.com/app/id6758230986";
       var STORE_LABELS = {
         zh: "在 App Store 免费下载",
         en: "Get on the App Store",
         ja: "App Store で入手"
       };
       function storeURL(code) {
-        if (APP_STORE_ID) {
-          return "https://apps.apple.com/app/id" + APP_STORE_ID;
-        }
-        if (code === "zh") {
-          return "https://apps.apple.com/cn/search?term=" + encodeURIComponent("山竹 CleanSnap");
-        }
-        if (code === "ja") {
-          return "https://apps.apple.com/jp/search?term=" + encodeURIComponent("山竹 CleanSnap");
-        }
-        return "https://apps.apple.com/search?term=" + encodeURIComponent("CleanSnap Swipe Photo Clean");
+        return STORE_URLS[code] || STORE_URL_DEFAULT;
       }
       function updateStoreButtons(code) {
         var url = storeURL(code);
