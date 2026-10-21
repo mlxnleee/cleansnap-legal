@@ -3,229 +3,101 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="CleanSnap / 山竹 — On-device AI photo cleanup for iPhone. Swipe to clean, compare bursts side by side, built for huge libraries.">
+  <meta name="description" content="CleanSnap / 山竹 — On-device AI photo cleanup for iPhone.">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <title>CleanSnap / 山竹 — Swipe Photo Clean</title>
-  <!-- store-links-v3 -->
+  <title>CleanSnap / 山竹</title>
+  <!-- store-links-v4 -->
   <style>
-    :root {
-      --bg: #f7f6f3;
-      --card: #ffffff;
-      --text: #1a1a1a;
-      --muted: #5c5c5c;
-      --accent: #2d6a9f;
-      --accent-soft: #e8f1f8;
-      --radius: 14px;
-    }
-    * { box-sizing: border-box; }
     body {
-      margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans", sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.65;
+      max-width: 40rem;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      line-height: 1.7;
+      color: #1a1a1a;
     }
-    .wrap { max-width: 40rem; margin: 0 auto; padding: 1.25rem 1.25rem 3rem; }
-    .lang-bar {
-      display: flex;
-      gap: 0.35rem;
-      flex-wrap: wrap;
-      margin-bottom: 1.5rem;
-    }
-    .lang-bar button {
+    h1 { font-size: 1.35rem; margin: 0 0 0.5rem; }
+    h2 { font-size: 1rem; margin-top: 1.5rem; }
+    a { color: #0066cc; }
+    .meta { color: #666; font-size: 0.9rem; margin: 0 0 1rem; }
+    .meta button {
       font: inherit;
-      font-size: 0.85rem;
-      padding: 0.35rem 0.75rem;
-      border-radius: 999px;
-      border: 1px solid #ddd;
-      background: var(--card);
-      color: var(--muted);
+      font-size: inherit;
+      color: #0066cc;
+      background: none;
+      border: none;
+      padding: 0;
       cursor: pointer;
+      text-decoration: underline;
     }
-    .lang-bar button.active {
-      background: var(--accent-soft);
-      border-color: var(--accent);
-      color: var(--accent);
-      font-weight: 600;
-    }
-    .hero {
-      background: linear-gradient(145deg, #fff 0%, var(--accent-soft) 100%);
-      border-radius: var(--radius);
-      padding: 1.75rem 1.5rem;
-      margin-bottom: 1.25rem;
-      border: 1px solid rgba(45, 106, 159, 0.12);
-    }
-    .hero h1 { font-size: 1.65rem; margin: 0 0 0.35rem; letter-spacing: -0.02em; }
-    .hero .sub { font-size: 1.05rem; color: var(--muted); margin: 0 0 1rem; }
-    .hero .promo {
-      font-size: 1rem;
-      margin: 0;
-      padding: 0.85rem 1rem;
-      background: rgba(255,255,255,0.75);
-      border-radius: 10px;
-      border-left: 3px solid var(--accent);
-    }
-    .badge {
-      display: inline-block;
-      font-size: 0.75rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      color: var(--accent);
-      background: var(--card);
-      padding: 0.25rem 0.55rem;
-      border-radius: 6px;
-      margin-bottom: 0.75rem;
-    }
-    .card {
-      background: var(--card);
-      border-radius: var(--radius);
-      padding: 1.25rem 1.35rem;
-      margin-bottom: 1rem;
-      border: 1px solid #ebebeb;
-    }
-    .card h2 { font-size: 1rem; margin: 0 0 0.75rem; }
-    .card ul { margin: 0; padding-left: 1.15rem; }
-    .card li { margin: 0.4rem 0; }
-    .cta {
-      text-align: center;
-      padding: 1.25rem;
-      margin: 1.5rem 0;
-    }
-    .cta p { margin: 0 0 0.5rem; font-weight: 600; }
-    .cta .hint { font-weight: 400; font-size: 0.9rem; color: var(--muted); margin-top: 0.75rem; }
-    .btn-store {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.45rem;
-      margin-top: 1.25rem;
-      padding: 0.85rem 1.35rem;
-      min-height: 48px;
-      border-radius: 12px;
-      background: #000;
-      color: #fff !important;
-      font-size: 1rem;
-      font-weight: 600;
-      text-decoration: none;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.18);
-    }
-    .btn-store:hover { background: #222; }
-    .btn-store svg { width: 22px; height: 22px; flex-shrink: 0; }
-    footer {
-      font-size: 0.88rem;
-      color: var(--muted);
-      border-top: 1px solid #e5e5e5;
-      padding-top: 1.25rem;
-    }
-    footer a { color: var(--accent); text-decoration: none; }
-    footer a:hover { text-decoration: underline; }
-    footer p { margin: 0.35rem 0; }
+    .meta button.active { color: #1a1a1a; font-weight: 600; text-decoration: none; cursor: default; }
+    .lead { margin: 0 0 1rem; }
+    ul { padding-left: 1.2rem; }
+    li { margin: 0.35rem 0; }
+    .foot { margin-top: 1.75rem; font-size: 0.9rem; color: #666; }
     [data-lang] { display: none; }
     [data-lang].show { display: block; }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <nav class="lang-bar" aria-label="Language">
-      <button type="button" data-set-lang="zh" class="active">简体中文</button>
-      <button type="button" data-set-lang="en">English</button>
-      <button type="button" data-set-lang="ja">日本語</button>
-    </nav>
+  <p class="meta" aria-label="Language">
+    <button type="button" data-set-lang="zh" class="active">简体中文</button> ·
+    <button type="button" data-set-lang="en">English</button> ·
+    <button type="button" data-set-lang="ja">日本語</button>
+  </p>
 
-    <!-- 简体中文 -->
-    <div data-lang="zh" class="show">
-      <section class="hero">
-        <span class="badge">100% 本地 · 照片不上传</span>
-        <h1>山竹</h1>
-        <p class="sub">刷着清的相册清理 · App Store：CleanSnap</p>
-        <p class="promo">相册几万张，根本懒得整理？本地 AI 自动找出垃圾照片，边扫边清不用等。相似、连拍横屏左右 PK，10 万张照片也能流畅清理。相册清理，轻松更解压。</p>
-      </section>
-      <div class="card">
-        <h2>为什么选山竹</h2>
-        <ul>
-          <li><strong>本地 AI 找废片</strong> — 模糊、黑屏、截图、相似与连拍，智能推荐更值得留下的一张</li>
-          <li><strong>边扫边刷</strong> — 扫描还没结束，就可以开始清理</li>
-          <li><strong>超大图库</strong> — 针对数万～十万张级相册优化，浏览与清理依然流畅</li>
-          <li><strong>横屏左右 PK</strong> — 大图对比更直观，AI 建议，删留由你决定</li>
-          <li><strong>删得安心</strong> — 只推荐不擅自删除，可撤销，删除进系统「最近删除」</li>
-        </ul>
-      </div>
-      <div class="cta">
-        <a class="btn-store" data-store-btn href="https://apps.apple.com/cn/app/id6758230986" rel="noopener noreferrer">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-          <span data-store-label>在 App Store 免费下载</span>
-        </a>
-        <p class="hint">iPhone · 离线可用 · 飞行模式也能整理</p>
-      </div>
-    </div>
-
-    <!-- English -->
-    <div data-lang="en">
-      <section class="hero">
-        <span class="badge">100% on-device · Photos never uploaded</span>
-        <h1>CleanSnap</h1>
-        <p class="sub">Swipe photo clean for iPhone</p>
-        <p class="promo">Too many photos? On-device AI finds junk while you scan-and-clean. Compare similar &amp; burst shots side by side—even 100K photos stay smooth. CleanSnap makes tidying feel easy.</p>
-      </section>
-      <div class="card">
-        <h2>Why CleanSnap</h2>
-        <ul>
-          <li><strong>Local AI cleanup</strong> — Blurry shots, screenshots, similar &amp; burst groups; pick what to keep</li>
-          <li><strong>Clean while scanning</strong> — Start swiping before the full library scan finishes</li>
-          <li><strong>Huge libraries</strong> — Tuned for tens or hundreds of thousands of photos</li>
-          <li><strong>Landscape compare</strong> — Side-by-side PK; AI suggests, you decide</li>
-          <li><strong>Safe deletes</strong> — Recommendations only, undo support, items go to Recently Deleted</li>
-        </ul>
-      </div>
-      <div class="cta">
-        <a class="btn-store" data-store-btn href="https://apps.apple.com/us/app/id6758230986" rel="noopener noreferrer">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-          <span data-store-label>Get on the App Store</span>
-        </a>
-        <p class="hint">iPhone · Works offline &amp; in Airplane Mode</p>
-      </div>
-    </div>
-
-    <!-- 日本語 -->
-    <div data-lang="ja">
-      <section class="hero">
-        <span class="badge">100% 端末内 · 写真は送信しません</span>
-        <h1>山竹 <span style="font-weight:400;font-size:1rem;color:var(--muted)">/ CleanSnap</span></h1>
-        <p class="sub">スワイプで写真整理</p>
-        <p class="promo">何万枚も写真、整理する気力がない？端末内AIが不要な写真を見つけ、スキャン中でもそのまま整理。類似・連写は横画面で比較、10万枚でもサクサク。気楽にアルバム整理。</p>
-      </section>
-      <div class="card">
-        <h2>山竹の特長</h2>
-        <ul>
-          <li><strong>端末内 AI</strong> — ブレ・スクショ・類似・連写を整理、残す1枚をサポート</li>
-          <li><strong>スキャンしながら整理</strong> — 全件スキャン完了を待たずに開始</li>
-          <li><strong>大容量ライブラリ</strong> — 数万～10万枚クラスでも快適</li>
-          <li><strong>横画面で比較</strong> — 左右 PK、提案は AI、決めるのはあなた</li>
-          <li><strong>安心の削除</strong> — 自動削除なし、取り消し可、「最近削除された項目」へ</li>
-        </ul>
-      </div>
-      <div class="cta">
-        <a class="btn-store" data-store-btn href="https://apps.apple.com/jp/app/id6758230986" rel="noopener noreferrer">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-          <span data-store-label>App Store で入手</span>
-        </a>
-        <p class="hint">iPhone · オフライン・機内モードでも利用可能</p>
-      </div>
-    </div>
-
-    <footer>
-      <p><strong data-lang="zh" class="show">支持</strong><strong data-lang="en">Support</strong><strong data-lang="ja">サポート</strong>:
-        <a href="mailto:mlxnleee@gmail.com">mlxnleee@gmail.com</a> ·
-        <a href="https://github.com/mlxnleee">GitHub</a></p>
-      <p>
-        <a href="zh/">隐私政策 (中文)</a> ·
-        <a href="en/">Privacy (EN)</a> ·
-        <a href="ja/">プライバシー (JA)</a> ·
-        <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">EULA</a>
-      </p>
-    </footer>
+  <div data-lang="zh" class="show">
+    <h1>山竹</h1>
+    <p class="meta">刷着清的相册整理 · App Store：CleanSnap · 100% 本地，照片不上传</p>
+    <p class="lead">相册几万张，根本懒得整理？本地 AI 自动找出垃圾照片，边扫边清不用等。相似、连拍横屏左右 PK，10 万张照片也能流畅清理。</p>
+    <h2>主要功能</h2>
+    <ul>
+      <li>模糊、截图、相似与连拍 — AI 推荐更值得留下的一张</li>
+      <li>扫描进行中即可开始清理</li>
+      <li>超大图库流畅浏览与清理</li>
+      <li>横屏左右对比，删留由你决定；可撤销，删除进「最近删除」</li>
+    </ul>
+    <p><a data-store-btn href="https://apps.apple.com/cn/app/id6758230986" rel="noopener noreferrer"><strong data-store-label>在 App Store 免费下载</strong></a></p>
   </div>
+
+  <div data-lang="en">
+    <h1>CleanSnap</h1>
+    <p class="meta">Swipe photo clean for iPhone · 100% on-device · Photos never uploaded</p>
+    <p class="lead">Too many photos? On-device AI finds junk while you scan-and-clean. Compare similar &amp; burst shots side by side—even 100K photos stay smooth.</p>
+    <h2>Highlights</h2>
+    <ul>
+      <li>Blurry shots, screenshots, similar &amp; burst groups</li>
+      <li>Clean while the library scan is still running</li>
+      <li>Built for very large photo libraries</li>
+      <li>Landscape compare; safe deletes with undo</li>
+    </ul>
+    <p><a data-store-btn href="https://apps.apple.com/us/app/id6758230986" rel="noopener noreferrer"><strong data-store-label>Get on the App Store</strong></a></p>
+  </div>
+
+  <div data-lang="ja">
+    <h1>山竹 <span style="font-weight:400">/ CleanSnap</span></h1>
+    <p class="meta">スワイプで写真整理 · 100% 端末内 · 写真は送信しません</p>
+    <p class="lead">何万枚も写真、整理する気力がない？端末内 AI が不要な写真を見つけ、スキャン中でもそのまま整理。類似・連写は横画面で比較、10 万枚でもサクサク。</p>
+    <h2>特長</h2>
+    <ul>
+      <li>ブレ・スクショ・類似・連写の整理</li>
+      <li>スキャン完了を待たずに開始</li>
+      <li>大容量ライブラリ向けに最適化</li>
+      <li>横画面で比較、安心の削除と取り消し</li>
+    </ul>
+    <p><a data-store-btn href="https://apps.apple.com/jp/app/id6758230986" rel="noopener noreferrer"><strong data-store-label>App Store で入手</strong></a></p>
+  </div>
+
+  <p class="foot">
+    <span data-lang="zh" class="show"><a href="mailto:mlxnleee@gmail.com">mlxnleee@gmail.com</a> · <a href="https://github.com/mlxnleee">技术支持</a> · </span>
+    <span data-lang="en"><a href="mailto:mlxnleee@gmail.com">mlxnleee@gmail.com</a> · <a href="https://github.com/mlxnleee">Support</a> · </span>
+    <span data-lang="ja"><a href="mailto:mlxnleee@gmail.com">mlxnleee@gmail.com</a> · <a href="https://github.com/mlxnleee">サポート</a> · </span>
+    <a href="zh/">隐私 (中文)</a> ·
+    <a href="en/">Privacy (EN)</a> ·
+    <a href="ja/">プライバシー (JA)</a> ·
+    <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">EULA</a>
+  </p>
+
   <script>
     (function () {
       var STORE_URLS = {
@@ -257,13 +129,14 @@
       var buttons = document.querySelectorAll("[data-set-lang]");
       function setLang(code) {
         blocks.forEach(function (el) {
-          var match = el.getAttribute("data-lang") === code;
-          el.classList.toggle("show", match && el.tagName !== "STRONG");
-          if (el.tagName === "STRONG") el.style.display = match ? "inline" : "none";
+          var lang = el.getAttribute("data-lang");
+          if (!lang) return;
+          var match = lang === code;
+          var isSpan = el.tagName === "SPAN";
+          el.classList.toggle("show", match && !isSpan);
+          if (isSpan) el.style.display = match ? "inline" : "none";
         });
-        document.querySelectorAll("[data-lang].show").forEach(function (el) {
-          if (el.tagName === "DIV") document.documentElement.lang = code === "zh" ? "zh-Hans" : code;
-        });
+        document.documentElement.lang = code === "zh" ? "zh-Hans" : code;
         buttons.forEach(function (btn) {
           btn.classList.toggle("active", btn.getAttribute("data-set-lang") === code);
         });
