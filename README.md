@@ -19,4 +19,4 @@ Static site for **App Store privacy URLs** and support. Does **not** contain app
 
 See [APP_STORE_URLS.md](./APP_STORE_URLS.md) for a copy-paste table.
 
-**Email:** mlxnle@163.com
+**Email:** mlxnleee@gmail.com
