@@ -4,7 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="CleanSnap / 山竹 — On-device AI photo cleanup for iPhone. Swipe to clean, compare bursts side by side, built for huge libraries.">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <title>CleanSnap / 山竹 — Swipe Photo Clean</title>
+  <!-- store-links-v3 -->
   <style>
     :root {
       --bg: #f7f6f3;
@@ -150,7 +152,7 @@
         </ul>
       </div>
       <div class="cta">
-        <a class="btn-store" data-store-btn href="#" rel="noopener">
+        <a class="btn-store" data-store-btn href="https://apps.apple.com/cn/app/id6758230986" rel="noopener noreferrer">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
           <span data-store-label>在 App Store 免费下载</span>
         </a>
@@ -177,7 +179,7 @@
         </ul>
       </div>
       <div class="cta">
-        <a class="btn-store" data-store-btn href="#" rel="noopener">
+        <a class="btn-store" data-store-btn href="https://apps.apple.com/us/app/id6758230986" rel="noopener noreferrer">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
           <span data-store-label>Get on the App Store</span>
         </a>
@@ -204,7 +206,7 @@
         </ul>
       </div>
       <div class="cta">
-        <a class="btn-store" data-store-btn href="#" rel="noopener">
+        <a class="btn-store" data-store-btn href="https://apps.apple.com/jp/app/id6758230986" rel="noopener noreferrer">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
           <span data-store-label>App Store で入手</span>
         </a>
@@ -237,16 +239,19 @@
         en: "Get on the App Store",
         ja: "App Store で入手"
       };
-      function storeURL(code) {
-        return STORE_URLS[code] || STORE_URL_DEFAULT;
-      }
-      function updateStoreButtons(code) {
-        var url = storeURL(code);
-        document.querySelectorAll("[data-store-btn]").forEach(function (a) {
-          a.href = url;
-          var label = a.querySelector("[data-store-label]");
-          if (label) label.textContent = STORE_LABELS[code] || STORE_LABELS.en;
+      function wireStoreButtons() {
+        document.querySelectorAll("div[data-lang] [data-store-btn]").forEach(function (a) {
+          var section = a.closest("div[data-lang]");
+          if (!section) return;
+          var lang = section.getAttribute("data-lang");
+          a.href = STORE_URLS[lang] || STORE_URL_DEFAULT;
         });
+      }
+      function updateStoreLabels(code) {
+        var section = document.querySelector('div[data-lang="' + code + '"]');
+        if (!section) return;
+        var label = section.querySelector("[data-store-label]");
+        if (label) label.textContent = STORE_LABELS[code] || STORE_LABELS.en;
       }
       var blocks = document.querySelectorAll("[data-lang]");
       var buttons = document.querySelectorAll("[data-set-lang]");
@@ -262,9 +267,10 @@
         buttons.forEach(function (btn) {
           btn.classList.toggle("active", btn.getAttribute("data-set-lang") === code);
         });
-        updateStoreButtons(code);
+        updateStoreLabels(code);
         try { localStorage.setItem("cleansnap-lang", code); } catch (e) {}
       }
+      wireStoreButtons();
       buttons.forEach(function (btn) {
         btn.addEventListener("click", function () { setLang(btn.getAttribute("data-set-lang")); });
       });
