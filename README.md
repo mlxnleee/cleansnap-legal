@@ -9,7 +9,10 @@ Static site for **App Store privacy URLs** and support. Does **not** contain app
 | | URL |
 |---|---|
 | Support | https://github.com/mlxnleee |
-| Marketing URL (product intro, tri-lingual) | https://mlxnleee.github.io/cleansnap-legal/ |
+| Marketing (简体中文) | https://mlxnleee.github.io/cleansnap-legal/marketing/zh/ |
+| Marketing (English) | https://mlxnleee.github.io/cleansnap-legal/marketing/en/ |
+| Marketing (日本語) | https://mlxnleee.github.io/cleansnap-legal/marketing/ja/ |
+| Site hub (optional) | https://mlxnleee.github.io/cleansnap-legal/ |
 | Privacy (简体中文) | https://mlxnleee.github.io/cleansnap-legal/zh/ |
 | Privacy (English) | https://mlxnleee.github.io/cleansnap-legal/en/ |
 | Privacy (日本語) | https://mlxnleee.github.io/cleansnap-legal/ja/ |
